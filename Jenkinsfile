@@ -23,17 +23,7 @@ node {
 			newApp.push()
         }
 	}
-	stage('Aqua MicroScanner'){
-        steps{
-            
-        
-        script{
-        ADD https://get.aquasec.com/microscanner /
-        RUN chmod +x /microscanner
-        RUN /microscanner ZWNmZTU1ZWExNjI5
-        }
-        }
-    }
+	
 	stage('Registring image') {
         docker.withRegistry( 'https://' + registry, registryCredential ) {
     		newApp.push 'latest2'
